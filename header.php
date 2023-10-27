@@ -45,7 +45,18 @@ session_start();
 			<div class="col-sm-10 header-social ">
 							
 				 <ul class="social-icon">
-				 
+				 <?php
+				 if(!isset($_SESSION["type"]))
+				 {
+				 ?>
+						<li><a href="adminlogin.php" style="font-weight:bold;"> Admin Login</a></li>
+				 <?php
+				 }
+				 else
+				 {
+					 echo "<li><a href='#' style='font-weight:bold;'>Welcome ".$_SESSION["name"]."</a></li>";
+				 }
+				 ?>
 						<!--<li><a href="#"><i class="ic1"></i></a></li>
 						<li><a href="#"><i class="ic2"></i></a></li>
 						<li><a href="#"><i class="ic3"></i></a></li>
