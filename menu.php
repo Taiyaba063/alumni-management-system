@@ -21,6 +21,8 @@
 						} else if (isset($_SESSION["type"]) && $_SESSION['type'] == 'admin') {
 						?>
 							<li><a class="nav-in" href="addadmin.php"><span data-letters="New Admin">New Admin</span></a></li>
+							<li><a class="nav-in" href="managecourse.php"><span data-letters="Manage Course">Manage Course</span></a></li>
+							
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
 								<ul class="dropdown-menu">
