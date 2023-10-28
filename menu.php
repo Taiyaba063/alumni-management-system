@@ -17,11 +17,19 @@
 						<?php
 						if (!isset($_SESSION["type"])) {
 						?>
+							<li><a class="nav-in" href="login.php"><span data-letters="Login">Login</span></a></li>
+							<li><a class="nav-in" href="reg.php"><span data-letters="New Alumni">New Alumni</span></a></li>
 						<?php
 						} else if (isset($_SESSION["type"]) && $_SESSION['type'] == 'admin') {
 						?>
 							<li><a class="nav-in" href="addadmin.php"><span data-letters="New Admin">New Admin</span></a></li>
 							<li><a class="nav-in" href="managecourse.php"><span data-letters="Manage Course">Manage Course</span></a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Verify<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="verify_reg.php" style='color:black'><span data-letters="Alumni">Alumni</span></a></li>
+								</ul>
+							</li>
 							
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Office Bearers<span class="caret"></span></a>
@@ -36,7 +44,20 @@
 									<li><a href="logout.php" style='color:black'><span data-letters="Logout">Logout</span></a></li>
 								</ul>
 							</li>
-						
+
+						<?php
+						} else if (isset($_SESSION["type"]) && $_SESSION['type'] == 'alumni') {
+						?>
+							
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account<span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="alumniprofile.php" style='color:black'><span data-letters="Update Profile">Update Profile</span></a></li>
+									<li><a href="changepass.php" style='color:black'><span data-letters="Change Password">Change Password</span></a></li>
+									<li><a href="logout.php" style='color:black'><span data-letters="Logout">Logout</span></a></li>
+								</ul>
+							</li>
+
 						<?php
 						}
 						?>
