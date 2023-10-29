@@ -51,7 +51,33 @@ if(isset($_POST['login']))
 		} 
 	}
 	
-	
+	else if($_POST["utype"] == "3")
+	{
+		$rs = mysqli_query($con,"select * from student where emailid='".$_POST['username']."' and password='".$_POST['password']."' ");
+		if(mysqli_num_rows($rs) > 0)
+		{
+			  $result = mysqli_fetch_array($rs);
+			  if($result['status'] == "Inactive")
+			  {
+				   echo "<script>alert('Account Yet to be Verified!!!');</script>";
+			  }
+			  else if($result['status'] == "Disapproved")
+			  {
+				   echo "<script>alert('Account disapproved by Admin!!!');</script>";
+			  }
+              else
+			  {			  
+					$_SESSION['uid'] = $result[0];
+					$_SESSION['name'] = $result[1];
+					$_SESSION['type'] = "student";			
+					echo "<script>window.location='index.php';</script>";
+		      }
+		}
+		else
+		{
+			echo "<script>alert('Invalid credential!!!!!');</script>";
+		}
+	}
 }
 include("header.php")
 ?>
@@ -66,6 +92,7 @@ include("header.php")
         <div class="col-sm-4">
          <select name="utype" id="utype" class="form-control">
 		 <option value="1">Alumni</option>
+		  <option value="3">Student</option>
 		 </select>
         </div>
       </div> 
