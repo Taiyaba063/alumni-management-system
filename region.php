@@ -112,6 +112,7 @@ include("footer.php");
             'pageLength',
 			'pdfHtml5'
         ]
+		
 	} );
         });
     </script>
